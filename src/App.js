@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { useState } from 'react';
+import { studentData } from './components/data/data';
+import Student from './components/Student/Student';
+import './components/Student/Student.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ul>
+      {studentData.map(student=>(
+        <li className="studentCard">
+          <Student key={student.id} student={student}/>
+        </li>
+      ))}
+    </ul>
+    </>
   );
 }
 
